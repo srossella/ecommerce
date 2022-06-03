@@ -16,7 +16,7 @@ export default function ProductDetail() {
   }
 
   useEffect(() => {
-    fetch(`https://4ilk3v7wbk.execute-api.eu-west-1.amazonaws.com/dev/products/${id}.json`)
+    fetch(`${process.env.REACT_APP_URL}products/${id}.json`)
       .then(res => res.json())
       .then(data => {
         setProduct(data.product);

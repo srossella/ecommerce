@@ -32,16 +32,20 @@ export default function Home() {
     setProducts([...products].sort((a, b) => (a.title > b.title) ? 1 : -1));
   }
 
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % products.length;
+    setItemOffset(newOffset);
+  };
+
   useEffect(() => {
     setItemOffset(0);
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems([...products].slice(itemOffset, endOffset))
   }, [products])
 
-
   useEffect(() => {
     setLoading(true);
-    fetch("https://4ilk3v7wbk.execute-api.eu-west-1.amazonaws.com/dev/collection_listings.json")
+    fetch(`${process.env.REACT_APP_URL}collection_listings.json`)
       .then(res => res.json())
       .then(data => {
         setCollectionListings(data.collection_listings);
@@ -53,7 +57,7 @@ export default function Home() {
 
   useEffect(() => {
     if (collection) {
-      fetch(`https://4ilk3v7wbk.execute-api.eu-west-1.amazonaws.com/dev/collections/${collection}/products.json`)
+      fetch(`${process.env.REACT_APP_URL}collections/${collection}/products.json`)
         .then(res => res.json())
         .then(data => {
           setProducts(data.products);
@@ -71,10 +75,6 @@ export default function Home() {
     setPageCount(Math.ceil(products.length / itemsPerPage));
   }, [itemOffset])
 
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % products.length;
-    setItemOffset(newOffset);
-  };
 
   return (
     <div className='flex flex-col sm:flex-row '>

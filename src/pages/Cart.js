@@ -18,7 +18,6 @@ export default function Cart() {
     const i = cart.findIndex(x => x.id === product.id)
     copyOfArr.splice(i, 1)
     setCart([...copyOfArr])
-    console.log('cart is ' + cart)
   }
 
   if (cart.length === 0) {
