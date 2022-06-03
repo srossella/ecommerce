@@ -1,0 +1,111 @@
+header{
+    height: 80px;
+    width: 100vw;
+    margin:auto;
+    display: flex;
+    flex-direction: row;
+   background-color: rgba(255, 255, 255, 0.87);
+    justify-content: space-between;
+    padding: 20px 20px 20px 20px;
+    align-items: center; 
+    max-width:1400px
+  }
+  header h1{
+    font-size: 30px;
+    color: var(--primary-color);
+    font-weight: 900;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  header button{
+    color:var(--primary-color);
+    font-size: larger;
+    margin-left: 20px;
+  border:none;
+  cursor:pointer;
+  width: 100px
+  }
+  header button:hover{
+    font-weight:700;
+  }
+  header ul a{
+    font-size: larger;
+    list-style: none;
+    margin: 10px;
+    padding-bottom: 10px;
+  }
+  
+  header ul a:hover{
+    font-weight: 700;
+    border-bottom: 5px solid var(--primary-color);
+    padding-bottom: 5px;
+    
+  }
+  
+  header ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+  }
+  .titleOnly{
+    margin: auto;
+    width: 100vw;
+   justify-content: center;
+  }
+  header nav{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  
+  @media only screen and (max-width: 800px) {
+
+    .toggle{
+      position: fixed;
+      right:20px;
+      top:20px;
+      z-index:500;
+      color: blueviolet;
+      cursor:pointer;
+    }
+      .close nav ul li, .close nav button{
+        display: none;
+      }
+   .open{
+     position: fixed;
+     top: 0;
+     right: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgb(156,197,161);
+  background: radial-gradient(circle, rgba(245,255,246,1) 0%, rgba(156,197,161,1) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index:400;
+      transition:  height 0.5s
+   }
+  .open nav ul, .open nav  {
+    display: flex;
+    flex-direction: column;
+  }
+  .open button{
+    margin: 10px;
+  }
+  .open nav ul li {
+    margin: 10px;
+  }
+  .open nav button{
+    padding: 0;
+    margin: auto;
+    margin-top: 10px;
+  }
+  }
+  @media only screen and (min-width: 800px) {
+    .toggle{
+     display: none;
+      
+    }
+  }
