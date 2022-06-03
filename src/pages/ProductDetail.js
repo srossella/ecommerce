@@ -12,13 +12,10 @@ export default function ProductDetail() {
   const [error, setError] = useState('');
 
   const addToCart = () => {
-    console.log(cart)
     setCart([...cart, product])
-    console.log(cart)
   }
 
   useEffect(() => {
-
     fetch(`https://4ilk3v7wbk.execute-api.eu-west-1.amazonaws.com/dev/products/${id}.json`)
       .then(res => res.json())
       .then(data => {

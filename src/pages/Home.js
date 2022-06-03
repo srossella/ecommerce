@@ -28,12 +28,8 @@ export default function Home() {
   }
 
   function sortByTitle() {
-    console.log('click')
     setFilter('title')
     setProducts([...products].sort((a, b) => (a.title > b.title) ? 1 : -1));
-    // setItemOffset(0);
-    // const endOffset = itemOffset + itemsPerPage;
-    // setCurrentItems([...products].slice(itemOffset, endOffset))
   }
 
   useEffect(() => {
@@ -125,9 +121,7 @@ export default function Home() {
                 previousLabel="< previous"
                 renderOnZeroPageCount={null}
               />
-            
             <div className='flex flex-row flex-wrap  justify-center mb-10'>
-
               {
                 currentItems.map((product) => {
                   return (
@@ -135,14 +129,9 @@ export default function Home() {
                   )
                 })
               }
-            
-         
             </div>
           </div>
       }
-
-
-
     </div >
   )
 }
